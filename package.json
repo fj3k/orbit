@@ -1,0 +1,26 @@
+{
+    "author": "emmaps@fj3k.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "orbit",
+    "pebble": {
+        "displayName": "Orbit",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk"
+        ],
+        "uuid": "ac15c007-e10f-4f8f-8513-74e0a846719c",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
