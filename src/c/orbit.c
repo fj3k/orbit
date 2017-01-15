@@ -19,7 +19,7 @@ static void bg_update_proc(Layer *layer, GContext *ctx) {
   GPoint centre = grect_center_point(&bounds);
 
   a_rand(256);
-  graphics_context_set_stroke_color(ctx, GColorDarkGray);
+  graphics_context_set_stroke_color(ctx, PBL_IF_COLOR_ELSE(GColorDarkGray, GColorWhite));
   for (int i = 0; i < 100; i++) {
     GPoint x = GPoint(
       a_rand(0) % bounds.size.w,
@@ -29,7 +29,7 @@ static void bg_update_proc(Layer *layer, GContext *ctx) {
   }
 
   graphics_context_set_antialiased(ctx, 1);
-  graphics_context_set_fill_color(ctx, GColorYellow);
+  graphics_context_set_fill_color(ctx, PBL_IF_COLOR_ELSE(GColorYellow, GColorWhite));
   graphics_fill_circle(ctx, centre, 9);
 }
 
@@ -42,7 +42,7 @@ static void hands_update_proc(Layer *layer, GContext *ctx) {
   time_t now = time(NULL);
   struct tm *t = localtime(&now);
 
-  graphics_context_set_fill_color(ctx, GColorYellow);
+  graphics_context_set_fill_color(ctx, PBL_IF_COLOR_ELSE(GColorYellow, GColorWhite));
   graphics_fill_circle(ctx, centre, 9);
 
   int spacing = bounds.size.w / 7;
@@ -66,13 +66,13 @@ static void hands_update_proc(Layer *layer, GContext *ctx) {
     (int16_t)(sin_lookup(moon_angle) * (spacing * 0.5) / TRIG_MAX_RATIO) + hourpos.x,
     (int16_t)(-cos_lookup(moon_angle) * (spacing * 0.5) / TRIG_MAX_RATIO) + hourpos.y
   );
-  graphics_context_set_fill_color(ctx, GColorPictonBlue);
+  graphics_context_set_fill_color(ctx, PBL_IF_COLOR_ELSE(GColorPictonBlue, GColorWhite));
   graphics_fill_circle(ctx, hourpos, 5);
-  graphics_context_set_fill_color(ctx, GColorRajah);
+  graphics_context_set_fill_color(ctx, PBL_IF_COLOR_ELSE(GColorRajah, GColorWhite));
   graphics_fill_circle(ctx, minpos, 4);
-  graphics_context_set_fill_color(ctx, GColorChromeYellow);
+  graphics_context_set_fill_color(ctx, PBL_IF_COLOR_ELSE(GColorChromeYellow, GColorWhite));
   graphics_fill_circle(ctx, secpos, 2);
-  graphics_context_set_fill_color(ctx, GColorLightGray);
+  graphics_context_set_fill_color(ctx, PBL_IF_COLOR_ELSE(GColorLightGray, GColorWhite));
   graphics_fill_circle(ctx, moonpos, 1);
 }
 
